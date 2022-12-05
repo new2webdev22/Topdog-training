@@ -216,6 +216,11 @@ form div input{
  box-shadow:2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+textarea {
+  width: 100%;
+  padding: 5px 35px;
+}
+
 label{
 display: block;
 margin-bottom: 5px;
@@ -227,6 +232,10 @@ form div{
 }
 
 input:focus{
+  border: 2px solid #f2796e;
+}
+
+textarea:focus{
   border: 2px solid #f2796e;
 }
 
@@ -279,4 +288,24 @@ button{
 button:hover{
   opacity: 0.8;
 }
+
+
+/*homepage ~ redirect*/
+
+.container h1{
+  font-size: 30px;
+  font-style: italic;
+}
+
+.container a{
+  color: #828282;
+  font-style: italic;
+}
+
+.container a:hover{
+  color:#022BB7;
+  font-weight: bold;
+}
+
+
 

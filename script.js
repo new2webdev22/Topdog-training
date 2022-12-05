@@ -5,7 +5,7 @@ let classes = (classes) => document.getElementsByClassName(classes)
 
 let username = id("username"),
 email = id("email"),
-number = id("number"),
+message = id("message"),
 form = id("form"),
 errorMsg = classes("error"),
 successIcon = classes("success-icon"),
@@ -16,7 +16,7 @@ form.addEventListener("submit", (e)=>{
 
    engine(username, 0, "Name cannot be blank");
    engine(email, 1, "Email cannot be blank");
-   engine(number, 2, "Number cannot be blank");
+   engine(message, 2, "Message cannot be blank");
 })
 
 let engine = (id, serial, message) =>{
