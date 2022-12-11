@@ -11,23 +11,28 @@ errorMsg = classes("error"),
 successIcon = classes("success-icon"),
 faulureIcon = classes("failure-icon");
 
-form.addEventListener("submit", (e)=>{
-   e.preventDefault();
 
-   engine(username, 0, "Name cannot be blank");
-   engine(email, 1, "Email cannot be blank");
-   engine(message, 2, "Message cannot be blank");
-})
+form.addEventListener("submit", (e) => {
+    let valid = true;
+    valid &= engine(username, 0, "Name cannot be blank");
+    valid &= engine(email, 1, "Email cannot be blank");
+    valid &= engine(message, 2, "Message cannot be blank");
+    if (!valid) {
+        e.preventDefault();
+    }
+});
 
 let engine = (id, serial, message) =>{
       if(id.value.trim() === ""){
     errorMsg[serial].innerHTML = message;
     faulureIcon[serial].style.opacity = "1";
     successIcon[serial].style.opacity = "0";
+    return false;
    }
    else{
     errorMsg[serial].innerHTML = "";
-    faulureIcon[serial].style.opacity = "0"
+    faulureIcon[serial].style.opacity = "0";
     successIcon[serial].style.opacity = "1";
+    return true;
    }
 }

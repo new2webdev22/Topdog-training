@@ -1,3 +1,35 @@
+<?php
+
+function send_Email()
+{
+    function input_data($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    if (isset($_POST["email"])) {
+        $username = input_data($_POST["username"]);
+        $email = input_data($_POST["email"]);
+        $message = input_data($_POST["message"]);
+       
+        $to = "jamiewebdev22@gmail.com";
+        $body = "";
+
+        $body .= "From: " . $username . "\r\n";
+        $body .= "Email: " . $email . "\r\n";
+        $body .= "Message: " . $message . "\r\n";
+        if (isset($_POST["submit"])) {
+            mail($to, "Top Dog Request Info", $body);
+            header("Location: thankyou.php");
+        }
+    }
+}
+send_Email();
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -41,7 +73,7 @@
             </ul>
           </div>
         </div>
-        <img class="logo-title" src="file:///C:/Users/JF_22/OneDrive/Pictures/brand-logo.svg" alt="logo">
+        <img class="logo-title" src="images/brand-logo.png" alt="logo">
       </nav>
 
       <!-- Title -->
@@ -190,7 +222,7 @@
   <!-- Contact FORM -->
 
   <div class="container">
-    <form id="form" action="mail.php" method="post">
+    <form id="form" action="" method="POST">
       <div class="title">Contact us</div>
       <!-- /**
         * ! user name Input here 
@@ -246,6 +278,12 @@
     <p>© Copyright Top Dog Training and Behaviour</p>
     <p>Brandon Fabris</p>
   </footer>
+  <script src="script.js"></script>
+  <script type="text/javascript">
+   if(window.history.replaceState){
+    window.history.replaceState(null, null, window.location.href);
+   }
+  </script>
 </body>
 
 </html>
